@@ -1,0 +1,9 @@
+h1, h2 {
+  font-family: Lato;
+}
+
+#mapid {
+  height: 400px;
+  width: 100%;
+  z-index: 1;
+}
