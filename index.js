@@ -37,5 +37,6 @@ map.on('click', e => {
     marker.getLatLng().lat.toFixed(5) +
     ', ' +
     marker.getLatLng().lng.toFixed(5) +
-    '<br>';
+    '<br>';  
+    console.log('%c ' + JSON.stringify(markers.toGeoJSON()), 'color:white)'); //patched for Stackblitz color bug
 });

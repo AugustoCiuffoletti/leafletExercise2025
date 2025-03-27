@@ -1,1 +1,1 @@
-# Step 6: create a layer for the markers 
+# Step 7: encode as a GeoJSON string 
