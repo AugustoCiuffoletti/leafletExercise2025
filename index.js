@@ -12,16 +12,19 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// Markers count
+var n = 1;
+
 // Attach a callback to the click event
 map.on('click', e => {
-  // Get a handle for the DOM element containing the list of coordinates
   let displayCoord = document.getElementById('displayCoord');
-  // Add a marker with the coordinates in the event descriptor
-  let marker = L.marker(e.latlng).addTo(map);
-  // Concatenate the new coordinates in the DOM element
+  let marker = L.marker(e.latlng, { title: n }).addTo(map);
   displayCoord.innerHTML +=
-    marker.getLatLng().lat.toFixed(5) + // truncate coordinates
+    n +
+    ': ' +
+    marker.getLatLng().lat.toFixed(5) +
     ', ' +
     marker.getLatLng().lng.toFixed(5) +
     '<br>';
+  n++;
 });

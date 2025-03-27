@@ -1,25 +1,23 @@
-# Step 3: Recording Coordinates in the Interface
+# Step 4: Linking Markers and Coordinates
 
-JavaScript can interact with the HTML page through the DOM. In this step, we enable users to place multiple markers while keeping their coordinates visible on the screen.
+Each marker in *Leaflet* has a `title` attribute that appears as a tooltip when the mouse hovers over it, without requiring a click. We can leverage this feature to associate each marker with its corresponding coordinates.
 
-## Displaying Marker Coordinates
-
-Each marker will be placed with a mouse click, and its corresponding coordinates will be displayed beneath the map.
+## Implementing the Marker-Coordinate Link
 
 To achieve this:
-1. **Modify the HTML**  
-   - Add a new `<div>` element where the coordinates will be displayed.
+1. **Introduce a Counter**  
+   - Define a counter variable `n`, initialized at zero.
+   - Increment `n` each time a new marker is created.
+   - Assign `n` as the marker’s `title` and display the same value alongside its coordinates.
 
-2. **Update the JavaScript Code**  
-   - Modify the function handling the click event:
-     - The first line creates and displays a new marker at the clicked position.
-     - The second line appends the marker's coordinates to the designated `<div>`.  
-     - Longitude and latitude are extracted from the event object and rounded to five decimal places for readability.
+2. **Improve Readability**  
+   - Display the coordinates in a structured way.
+   - Ensure each marker is clearly linked to its corresponding entry in the coordinate list.
 
 ## Experimentation
 
-Enhance the visualization by:
-- Formatting the coordinates in an HTML table.
-- Adding progressive numbering to associate each marker with its coordinates (and vice versa).  
+Try enhancing the visualization by:
+- Using an HTML table for better formatting.
+- Styling the coordinate list for improved readability.
 
-This numbering improvement is covered in the next step, which you can find in the `idList` branch.
+Once ready, proceed to the next step in the `removeMarkers` branch.
