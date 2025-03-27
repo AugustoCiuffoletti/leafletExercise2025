@@ -14,7 +14,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Attach a callback to a click event on the map. The callback displays
 // an alert with the latitude and the longitude found in the event descriptor
-aMap.on('click', e =>
+map.on('click', e =>
   alert(
     'Coordinates: ' + e.latlng.lat.toFixed(5) + ', ' + e.latlng.lng.toFixed(5)
   )
