@@ -1,26 +1,23 @@
-This is a step-by-step tutorial on Leaflet that will guide you through the implementation of a functional web app.  
-To follow the mini-tutorial, visit this [link](https://stackblitz.com/edit/dhss2021).  
-There, you will find the IDE to browse and modify the code, along with README files that illustrate the step-by-step progression.
+# Step 2: Managing Map Events
 
-## Step 1: Displaying a Map
+The *Leaflet* library allows handling various types of events, including those triggered by the mouse. The most basic one is the *click* event.
 
-The first step consists of rendering a simple map on the webpage.
+## Handling a Click Event
 
-1. Add a `<div>` element in the HTML file where the map will be displayed.  
-2. Include links to the Leaflet library and a CSS file for styling.  
-3. In `index.js`, initialize the map using the Leaflet library (`L` is the alias for Leaflet in the code).  
-4. Use the `.map()` method to create a map inside the specified `<div>`. The method takes options such as:  
-   - The initial center coordinates of the map  
-   - The zoom level  
-   - The tile source for the raster layer  
+To capture and handle a map event, we use the `.on()` method applied to the map. This method takes two parameters:  
+1. The event type to listen for (`"click"` in our case).  
+2. A function that receives the event details as a parameter.  
 
-Once the map is displayed, you can drag and zoom in/out using your mouse.
+Following best practices, we use the arrow function syntax for the event handler. The function itself consists of a single `alert` statement, which extracts and displays the click coordinates from the event object.
 
 ## Experimentation
 
-Explore the [Leaflet documentation](https://leafletjs.com/) to experiment with additional map options.  
-Modify the settings in `index.js` to test different configurations.
+Try modifying the code to:
+- Create a marker at the clicked position.
+- Attach a popup to the marker displaying the coordinates.
+- Explore other mouse events supported by Leaflet.
+- Inspect the event object properties using the [Leaflet documentation](https://leafletjs.com/reference.html#map-event).
 
 ## Next Step
 
-When you're ready, switch to the `popup` branch to move on to the next step.
+Proceed to the next step by switching to the `coordInHTML` branch.
