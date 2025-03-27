@@ -1,23 +1,25 @@
-# Step 2: Managing Map Events
+# Step 3: Recording Coordinates in the Interface
 
-The *Leaflet* library allows handling various types of events, including those triggered by the mouse. The most basic one is the *click* event.
+JavaScript can interact with the HTML page through the DOM. In this step, we enable users to place multiple markers while keeping their coordinates visible on the screen.
 
-## Handling a Click Event
+## Displaying Marker Coordinates
 
-To capture and handle a map event, we use the `.on()` method applied to the map. This method takes two parameters:  
-1. The event type to listen for (`"click"` in our case).  
-2. A function that receives the event details as a parameter.  
+Each marker will be placed with a mouse click, and its corresponding coordinates will be displayed beneath the map.
 
-Following best practices, we use the arrow function syntax for the event handler. The function itself consists of a single `alert` statement, which extracts and displays the click coordinates from the event object.
+To achieve this:
+1. **Modify the HTML**  
+   - Add a new `<div>` element where the coordinates will be displayed.
+
+2. **Update the JavaScript Code**  
+   - Modify the function handling the click event:
+     - The first line creates and displays a new marker at the clicked position.
+     - The second line appends the marker's coordinates to the designated `<div>`.  
+     - Longitude and latitude are extracted from the event object and rounded to five decimal places for readability.
 
 ## Experimentation
 
-Try modifying the code to:
-- Create a marker at the clicked position.
-- Attach a popup to the marker displaying the coordinates.
-- Explore other mouse events supported by Leaflet.
-- Inspect the event object properties using the [Leaflet documentation](https://leafletjs.com/reference.html#map-event).
+Enhance the visualization by:
+- Formatting the coordinates in an HTML table.
+- Adding progressive numbering to associate each marker with its coordinates (and vice versa).  
 
-## Next Step
-
-Proceed to the next step by switching to the `coordInHTML` branch.
+This numbering improvement is covered in the next step, which you can find in the `idList` branch.
