@@ -15,6 +15,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // A layer of markers
 var markers = L.layerGroup();
 markers.addTo(map);
+
+// Marker's count
+var n = 0;
+
 // Add controls for the layer
 L.control.layers(
   {},                  // base layers, radio buttons
@@ -23,7 +27,7 @@ L.control.layers(
 
 // Attach a callback to the click event
 map.on('click', e => {
-  let n = markers.length + 1;
+  let n = n + 1;
   let displayCoord = document.getElementById('displayCoord');
   let marker = L.marker(e.latlng, { title: n }).addTo(map);
   markers.addLayer(marker);
