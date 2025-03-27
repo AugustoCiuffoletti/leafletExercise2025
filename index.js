@@ -12,13 +12,16 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// Markers count
-var n = 1;
+// An array of markers
+var markers = [];
+
 
 // Attach a callback to the click event
 map.on('click', e => {
+  let n = markers.length + 1;
   let displayCoord = document.getElementById('displayCoord');
   let marker = L.marker(e.latlng, { title: n }).addTo(map);
+  markers.push(marker);
   displayCoord.innerHTML +=
     n +
     ': ' +
@@ -26,5 +29,4 @@ map.on('click', e => {
     ', ' +
     marker.getLatLng().lng.toFixed(5) +
     '<br>';
-  n++;
 });
