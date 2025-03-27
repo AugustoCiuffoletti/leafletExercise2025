@@ -12,10 +12,16 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// Attach a callback to a click event on the map. The callback displays
-// an alert with the latitude and the longitude found in the event descriptor
-map.on('click', e =>
-  alert(
-    'Coordinates: ' + e.latlng.lat.toFixed(5) + ', ' + e.latlng.lng.toFixed(5)
-  )
-);
+// Attach a callback to the click event
+map.on('click', e => {
+  // Get a handle for the DOM element containing the list of coordinates
+  let displayCoord = document.getElementById('displayCoord');
+  // Add a marker with the coordinates in the event descriptor
+  let marker = L.marker(e.latlng).addTo(map);
+  // Concatenate the new coordinates in the DOM element
+  displayCoord.innerHTML +=
+    marker.getLatLng().lat.toFixed(5) + // truncate coordinates
+    ', ' +
+    marker.getLatLng().lng.toFixed(5) +
+    '<br>';
+});
