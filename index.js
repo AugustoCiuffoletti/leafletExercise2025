@@ -27,7 +27,7 @@ L.control.layers(
 
 // Attach a callback to the click event
 map.on('click', e => {
-  let n = n + 1;
+  n = n + 1;
   let displayCoord = document.getElementById('displayCoord');
   let marker = L.marker(e.latlng, { title: n }).addTo(map);
   markers.addLayer(marker);
