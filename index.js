@@ -58,7 +58,8 @@ newButton.onclick = e => {
     // Load the key in the input box
     document.getElementById('keyBox').value = key;
     // Hide "New" button
-    document.getElementById('newButton').style.display = 'none'
+    document.getElementById('newButton').style.display = 'none';
+    document.getElementById('saveButton').style.display = 'block';
     },
     err => alert("Key generation failed: "+err)
     );
