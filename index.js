@@ -66,7 +66,7 @@ newButton.onclick = e => {
 };
 
 // Action for click on "Save" button
-// Retrieve the the data associated with the key
+// Save the data as a value associated with the key
 saveButton.onclick = e => {
   // Retrieve key from the "keyBox" input box
   let key = document.getElementById('keyBox').value;
