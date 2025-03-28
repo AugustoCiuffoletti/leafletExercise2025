@@ -62,7 +62,7 @@ newButton.onclick = e => {
     },
     err => alert("Key generation failed: "+err)
     );
-  };
+  }
 };
 
 // Action for click on "Save" button
