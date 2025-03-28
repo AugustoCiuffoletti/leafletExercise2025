@@ -59,6 +59,7 @@ newButton.onclick = e => {
     document.getElementById('keyBox').value = key;
     // Hide "New" button
     document.getElementById('newButton').style.display = 'none';
+    // Show "Save" button
     document.getElementById('saveButton').style.display = 'block';
     },
     err => alert("Key generation failed: "+err)
@@ -94,22 +95,31 @@ loadButton.onclick = e => {
   markers.clearLayers();
   // Send GET request on "getValue" route with the key in the query
   fetch(baseURL + '/getValue' + '?key=' + key)
-    // unpack the GeoJSON layer in the response payload
+    // Unpack the GeoJSON layer in the response payload
     .then(response => response.json())
     .then(layer => {
       let n = 0;
+      // Scan all features in the layer
       layer.features.forEach(feature => {
         try {
           n = n + 1;
+          // Build marker coordinates
           let latitude = feature.geometry.coordinates[1].$numberDouble;
           let longitude = feature.geometry.coordinates[0].$numberDouble;
           let coordinates = L.latLng([latitude, longitude]);
           let aMarker = L.marker(coordinates, { title:  n });
+          // Add marker to map
           markers.addLayer(aMarker);
+          // Add coordinates to display 
           displayCoord.innerHTML += `${n}:  ${latitude}, ${longitude} <br>`;
         } catch (e) {
           console.log('errore ' + e);
         }
       })
-    });
+    },
+    err => alert("Load failed: " + err));
+    // Hide "New" button
+    document.getElementById('newButton').style.display = 'none';
+    // Show "Save" button
+    document.getElementById('saveButton').style.display = 'block';
 };
