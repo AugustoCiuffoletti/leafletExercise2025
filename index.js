@@ -44,22 +44,40 @@ map.on('click', e => {
     console.log('%c ' + JSON.stringify(markers.toGeoJSON()), 'color:white)'); //patched for Stackblitz color bug
 });
 
+// Action for click on "New" button
+// Obtain a new key from the key-value service
 newButton.onclick = e => {
+  // Send POST request on "getKey" route
   fetch(baseURL+'/getKey', { method: 'POST' })
+  // Unpack response text
   .then(response => response.text())
   .then(body => {
+    alert("Key generation successful");
+	// Retrieve key from response body
     let key = JSON.parse(body);
-    fetch(baseURL+'/setValue'+'?key='+key, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(markers.toGeoJSON())
-    }).then(
-      () => {
-        console.log("Success");
-        document.getElementById('keyBox').value = key;
-        document.getElementById('newButton').style.display = 'none'
-      },
-      err => console.log(err)
+    // Load the key in the input box
+    document.getElementById('keyBox').value = key;
+    // Hide "New" button
+    document.getElementById('newButton').style.display = 'none'
+    },
+    err => alert("Key generation failed: "+err)
     );
   });
+};
+
+// Action for click on "Save" button
+// Retrieve the the data associated with the key
+saveButton.onclick = e => {
+  // Retrieve key from the "keyBox" input box
+  let key = document.getElementById('keyBox').value;
+  // Send POST request on "sendValue" route with the key in the query
+  fetch(baseURL + '/setValue' + '?key=' + key, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(markers.toGeoJSON())
+  }).then(
+  // Give feedback with an alert
+    () => alert("Save successful"),
+    err => alert("Save failed: "+err)
+  );
 };

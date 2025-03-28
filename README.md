@@ -1,3 +1,3 @@
-# Step 8: create a storage for your data
+# Step 9: save data to storage
 
-To see the console, "Open preview in new tab" and inspect (Ctrl+I)
+Save the data
