@@ -1,3 +1,3 @@
-# Step 9: save data to storage
+# Step 10: retrieve data from storage
 
-Save the data
+Retrieve the data
