@@ -94,28 +94,22 @@ loadButton.onclick = e => {
   markers.clearLayers();
   // Send GET request on "getValue" route with the key in the query
   fetch(baseURL + '/getValue' + '?key=' + key)
-    // unpack the GeoJSON payload in the response
+    // unpack the GeoJSON layer in the response payload
     .then(response => response.json())
     .then(layer => {
-      for (let i in layer.features) {
+      let n = 0;
+      layer.features.forEach(feature => {
         try {
-          let coord = L.latLng([
-            layer.features[i].geometry.coordinates[1].$numberDouble,
-            layer.features[i].geometry.coordinates[0].$numberDouble
-          ]);
-          let aMarker = L.marker(coord, { title: Number(i) + 1 });
+          n = n + 1;
+          let latitude = feature.geometry.coordinates[1].$numberDouble;
+          let longitude = feature.geometry.coordinates[0].$numberDouble;
+          let coordinates = L.latLng([latitude, longitude]);
+          let aMarker = L.marker(coordinates, { title:  n });
           markers.addLayer(aMarker);
-          displayCoord.innerHTML +=
-            Number(i) +
-            1 +
-            ': ' +
-            coord.lat.toFixed(5) +
-            ', ' +
-            coord.lng.toFixed(5) +
-            '<br>';
+          displayCoord.innerHTML += `${n}:  ${latitude}, ${longitude} <br>`;
         } catch (e) {
           console.log('errore ' + e);
         }
-      }
+      })
     });
 };
