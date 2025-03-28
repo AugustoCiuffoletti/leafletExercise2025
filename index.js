@@ -66,7 +66,7 @@ newButton.onclick = e => {
 };
 
 // Action for click on "Save" button
-// Retrieve the the data associated with the key
+// Save the data as a value associated with the key
 saveButton.onclick = e => {
   // Retrieve key from the "keyBox" input box
   let key = document.getElementById('keyBox').value;
@@ -80,4 +80,42 @@ saveButton.onclick = e => {
     () => alert("Save successful"),
     err => alert("Save failed: "+err)
   );
+};
+
+// Action for click on "Load" button
+// Retrieve the data associated with the key
+loadButton.onclick = e => {
+  // Retrieve key from the "keyBox" input box
+  let key = document.getElementById('keyBox').value;
+  // Prepare the coordinates display as empty
+  let displayCoord = document.getElementById('displayCoord');
+  displayCoord.innerHTML = '';
+  // Clear the layer
+  markers.clearLayers();
+  // Send GET request on "getValue" route with the key in the query
+  fetch(baseURL + '/getValue' + '?key=' + key)
+    // unpack the GeoJSON payload in the response
+    .then(response => response.json())
+    .then(layer => {
+      for (let i in layer.features) {
+        try {
+          let coord = L.latLng([
+            layer.features[i].geometry.coordinates[1].$numberDouble,
+            layer.features[i].geometry.coordinates[0].$numberDouble
+          ]);
+          let aMarker = L.marker(coord, { title: Number(i) + 1 });
+          markers.addLayer(aMarker);
+          displayCoord.innerHTML +=
+            Number(i) +
+            1 +
+            ': ' +
+            coord.lat.toFixed(5) +
+            ', ' +
+            coord.lng.toFixed(5) +
+            '<br>';
+        } catch (e) {
+          console.log('errore ' + e);
+        }
+      }
+    });
 };
