@@ -20,4 +20,4 @@ Try modifying the code to:
 
 ## Next Step
 
-Proceed to the next step by switching to the `coordInHTML` branch.
+When you're ready, switch to the next step [here](https://github.com/AugustoCiuffoletti/leafletExercise2025/tree/step-3).
