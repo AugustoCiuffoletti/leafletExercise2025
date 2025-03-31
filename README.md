@@ -22,4 +22,4 @@ Enhance the visualization by:
 - Formatting the coordinates in an HTML table.
 - Adding progressive numbering to associate each marker with its coordinates (and vice versa).  
 
-This numbering improvement is covered in the next step, which you can find in the `idList` branch.
+When you're ready, switch to the next step [here](https://github.com/AugustoCiuffoletti/leafletExercise2025/tree/step-4).
