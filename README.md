@@ -23,4 +23,4 @@ Modify the settings in `index.js` to test different configurations.
 
 ## Next Step
 
-When you're ready, switch to the `popup` branch to move on to the next step.
+When you're ready, switch to the next step [here](https://github.com/AugustoCiuffoletti/leafletExercise2025/tree/step-2).
