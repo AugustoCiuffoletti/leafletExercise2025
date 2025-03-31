@@ -23,4 +23,5 @@ At this stage, the coordinates are displayed in the user interface, allowing use
 
 ## Next Steps: Data Persistence
 
-Currently, the data is **volatile**—reloading the page clears all stored coordinates. To ensure persistence and enable data sharing, we need cloud storage. This will be the focus of the next step in the `createStorage` branch.
+Currently, the data is **volatile**—reloading the page clears all stored coordinates. To ensure persistence and enable data sharing, we need cloud storage.
+When you're ready, switch to the next step [here](https://github.com/AugustoCiuffoletti/leafletExercise2025/tree/step-6).
