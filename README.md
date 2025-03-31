@@ -20,4 +20,4 @@ Try enhancing the visualization by:
 - Using an HTML table for better formatting.
 - Styling the coordinate list for improved readability.
 
-Once ready, proceed to the next step in the `removeMarkers` branch.
+When you're ready, switch to the next step [here](https://github.com/AugustoCiuffoletti/leafletExercise2025/tree/step-5).
