@@ -29,6 +29,7 @@ L.control.layers(
 map.on('click', e => {
   n = n + 1;
   let displayCoord = document.getElementById('displayCoord');
+  let displayGeoJSON = document.getElementById('displayGeoJSON');
   let marker = L.marker(e.latlng, { title: n }).addTo(map);
   markers.addLayer(marker);
   displayCoord.innerHTML +=
@@ -37,6 +38,6 @@ map.on('click', e => {
     marker.getLatLng().lat.toFixed(5) +
     ', ' +
     marker.getLatLng().lng.toFixed(5) +
-    '<br>';  
-    console.log('%c ' + JSON.stringify(markers.toGeoJSON()), 'color:white)'); //patched for Stackblitz color bug
+    '<br>';    
+  displayGeoJSON.innerHTML=JSON.stringify(markers.toGeoJSON())
 });
